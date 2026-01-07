@@ -70,6 +70,16 @@ The **same embedding model** is used for both document chunks and user queries t
 
 ---
 
+## 🔁 Retrieval & Answer Generation Enhancements
+
+- Implemented **LLM-based answer generation strictly grounded in retrieved context**, preventing the model from introducing external knowledge.
+- Explored and integrated multiple retrieval strategies to improve answer reliability and recall:
+  - **MMR (Maximal Marginal Relevance):** diversity-aware retrieval to reduce redundancy in retrieved chunks
+  - **Similarity score thresholding:** rejection of low-confidence context to avoid unsupported answers
+  - **Multi-query retrieval:** improved recall for ambiguous or underspecified user queries
+
+---
+
 ## ⚠️ Hallucination Awareness
 
 If the retrieved context **does not explicitly contain the answer**, the system responds with:
