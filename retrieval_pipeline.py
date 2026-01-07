@@ -47,20 +47,21 @@ def ask_question(user_question: str):
     #--------------------------------------
     # similarity threshold retrieval method
     #--------------------------------------
-    # retriever = db.as_retriever(
-    #     search_type = 'similarity_score_threshold',
-    #     search_kwargs={
-    #         "k": 3,
-    #         "score_threshold": 0.4})
+    retriever = db.as_retriever(
+        search_type = 'similarity_score_threshold',
+        search_kwargs={
+            "k": 3,
+            "score_threshold": 0.4})
     #----------------------------------------
     # max marginal relevance retrieval method
     #----------------------------------------
-    retriever = db.as_retriever(
-        search_type = 'mmr',
-        search_kwargs={
-            "k": 3,
-            "fetch_k": 10,
-            "lambda_mult": 0.5})
+    # retriever = db.as_retriever(
+    #     search_type = 'mmr',
+    #     search_kwargs={
+    #         "k": 3,
+    #         "fetch_k": 10,
+    #         "lambda_mult": 0.5})
+    
     relevant_docs = retriever.invoke(searchable_question)
     
     #Display results
